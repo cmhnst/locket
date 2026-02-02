@@ -2,7 +2,7 @@
 // RevenueCat Multi-App Premium Unlocker
 // ⚡ Performance: Ultra-Fast & Universal
 // 🔐 Supports: Locket, VSCO, Mojo, HTTPBot, 1Blocker, Structured, Splice, Facetune
-// 📅 Version: 2.1 (2026-01-15)
+// 📅 Version: 2.2 (2026-02-03)
 // 👤 Author: z3rokaze
 // ========================================
 
@@ -10,7 +10,7 @@
   'use strict';
 
   // ========= Constants ========= //
-  const PURCHASE_DATE = "2026-01-15T00:00:00Z";
+  const PURCHASE_DATE = "2026-02-03T00:00:00Z";
   const EXPIRES_DATE = "2099-12-31T23:59:59Z";
 
   // ========= App Configurations (Verified Working) ========= //

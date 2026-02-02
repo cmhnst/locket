@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: 26 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + Alight Motion + KineMaster + Photomath + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.3.2 (2026-01-16)
+desc: 26 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + Alight Motion + KineMaster + Photomath + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.4.0 (2026-02-03)
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/z3rokaze/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -105,7 +105,7 @@ http:
       require-body: true
       timeout: 10
       max-size: 131072
-    # SoundCloud Go+ - sbunkov (Updated 2026-01-13)
+    # SoundCloud Go+ - sbunkov (Updated 2026-02-03)
     - match: ^https:\/\/api-mobile\.soundcloud\.com\/configuration\/ios
       name: sc-res
       type: response

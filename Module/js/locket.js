@@ -2,22 +2,22 @@
 // Locket Gold Premium - Enhanced Version
 // ⚡ Performance: Fast & Smooth
 // 🔐 Lifetime Premium Unlock
-// 📅 Version: 1.5 (2026-01-15) - Enhanced
+// 📅 Version: 1.6 (2026-02-03) - Enhanced
 // 👤 Author: z3rokaze
 // ========================================
 
 (function () {
-  'use strict';
+  "use strict";
 
   // ========= Constants (Updated) ========= //
-  const PURCHASE_DATE = "2026-01-15T00:00:00Z";       // ✅ Current date
-  const EXPIRES_DATE = "2099-12-31T23:59:59Z";        // ✅ Lifetime
-  const PRODUCT_ID = "locket.premium.yearly";         // ✅ Stable product ID
+  const PURCHASE_DATE = "2026-02-03T00:00:00Z"; // ✅ Current date
+  const EXPIRES_DATE = "2099-12-31T23:59:59Z"; // ✅ Lifetime
+  const PRODUCT_ID = "locket.premium.yearly"; // ✅ Stable product ID
 
   // ========= Mapping Configuration ========= //
   const APP_MAPPING = {
-    '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
-    'Locket': ['Gold']
+    "%E8%BD%A6%E7%A5%A8%E7%A5%A8": ["vip+watch_vip"],
+    Locket: ["Gold"],
   };
 
   // ========= Get User-Agent (Optimized) ========= //
@@ -46,8 +46,8 @@
         subscriptions: {},
         entitlements: {},
         original_app_user_id: "",
-        original_application_version: ""
-      }
+        original_application_version: "",
+      },
     };
   }
 
@@ -57,23 +57,23 @@
     ownership_type: "PURCHASED",
     billing_issues_detected_at: null,
     period_type: "normal",
-    expires_date: EXPIRES_DATE,                    // ✅ Now consistent & longer
+    expires_date: EXPIRES_DATE, // ✅ Now consistent & longer
     grace_period_expires_date: null,
     unsubscribe_detected_at: null,
-    original_purchase_date: PURCHASE_DATE,         // ✅ Updated date
-    purchase_date: PURCHASE_DATE,                  // ✅ Updated date
-    store: "app_store"
+    original_purchase_date: PURCHASE_DATE, // ✅ Updated date
+    purchase_date: PURCHASE_DATE, // ✅ Updated date
+    store: "app_store",
   };
 
   const entitlementData = {
     grace_period_expires_date: null,
-    purchase_date: PURCHASE_DATE,                  // ✅ Updated date
-    product_identifier: PRODUCT_ID,                // ⚠️ Keep original format
-    expires_date: EXPIRES_DATE                     // ✅ Now same as subscription
+    purchase_date: PURCHASE_DATE, // ✅ Updated date
+    product_identifier: PRODUCT_ID, // ⚠️ Keep original format
+    expires_date: EXPIRES_DATE, // ✅ Now same as subscription
   };
 
   // ========= Apply Mapping (Optimized Logic) ========= //
-  let entitlementKey = "Gold";  // Default
+  let entitlementKey = "Gold"; // Default
 
   // Fast mapping lookup
   for (const key in APP_MAPPING) {
@@ -89,5 +89,4 @@
 
   // ========= Return Response (Fast stringify) ========= //
   $done({ body: JSON.stringify(responseObj) });
-
 })();
