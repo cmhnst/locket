@@ -1,8 +1,8 @@
 # ⚡ Anh Tú Premium - Quantumult X
-# 26 Apps: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + Alight Motion + KineMaster + Photomath + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.4.0 (2026-02-03)
+# 24 Apps: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.5.0 (2026-02-10)
 # https://github.com/z3rokaze/NguyenNgocAnhTu
 
-hostname=*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,api.revenuecat.com,api.picsart.c*,api.meiease.c*,api-mobile.soundcloud.com,us-central1-alight-creative.cloudfunctions.net,api-account.kinemasters.com,lapi.photomath.net,photos.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,vsco.co,api.mojo-app.com,widgetsmith.com,mb3admin.com,api.prod.headspace.com,api.funimate.com,lcs-mobile-cops.adobe.io,api.reface.video,api.unfold.app
+hostname=*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,api.revenuecat.com,api.picsart.c*,api.meiease.c*,api-mobile.soundcloud.com,api-account.kinemasters.com,photos.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,vsco.co,api.mojo-app.com,widgetsmith.com,mb3admin.com,api.prod.headspace.com,api.funimate.com,lcs-mobile-cops.adobe.io,api.reface.video,api.unfold.app
 
 # Spotify Ads Block
 host-suffix, audio-ak-spotify-com.akamaized.net, reject
@@ -42,14 +42,8 @@ host-keyword, spotify-ads, reject
 # SoundCloud Go+ - sbunkov (Updated 2026-02-03)
 ^https:\/\/api-mobile\.soundcloud\.com\/configuration\/ios url script-response-body https://raw.githubusercontent.com/sbunkov/shadowrocket-configuration/main/scripts/soundcloud.js
 
-# Alight Motion - iSteal-it
-^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses$ url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/alight-motion.json
-
 # KineMaster - iSteal-it
 ^https:\/\/api-account\.kinemasters\.com\/v2\/user\/subscribe url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Kinemaster.json
-
-# Photomath - iSteal-it
-^https:\/\/lapi\.photomath\.net\/v4\/me url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Photomath.json
 
 # Lightroom - iSteal-it
 ^https:\/\/photos\.adobe\.io\/v2\/accounts url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Lightroom.json

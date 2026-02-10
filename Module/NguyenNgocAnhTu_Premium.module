@@ -1,7 +1,7 @@
 #!name=⚡ Nguyễn Ngọc Anh Tú 🌸 - Premium Extended
-#!desc=✨ 26 Apps Premium: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + Alight Motion + KineMaster + Photomath + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune 🔥
-#!version=2.4.0
-#!date=2026-02-03
+#!desc=✨ 24 Apps Premium: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune 🔥
+#!version=2.5.0
+#!date=2026-02-10
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
 #!homepage=https://github.com/z3rokaze/NguyenNgocAnhTu
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png
@@ -44,16 +44,16 @@ DOMAIN,www.googleadservices.com,REJECT
 # ═══════════════════════════════════════════════════════════════
 youtube-request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch),requires-body=1,max-size=3145728,binary-body-mode=1,timeout=30,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
 
-youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=3145728,binary-body-mode=1,timeout=30,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument={"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"debug":false}
+youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=3145728,binary-body-mode=1,timeout=30,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument={"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}
 
 # ═══════════════════════════════════════════════════════════════
 # 🎵 SPOTIFY PREMIUM - app2smile
 # ═══════════════════════════════════════════════════════════════
-spotify-header = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com)\/(user-customization-service\/v1\/customize)$,requires-body=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js
+spotify-header = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize)$,requires-body=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js
 
-spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 
-spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
 
 # ═══════════════════════════════════════════════════════════════
 # 🎧 SOUNDCLOUD GO+ - sbunkov
@@ -71,19 +71,9 @@ picsart-response = type=http-response,pattern=^https:\/\/api\.(picsart|meiease)\
 emby-response = type=http-response,pattern=^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice,requires-body=true,max-size=131072,timeout=10,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/emby/emby.js
 
 # ═══════════════════════════════════════════════════════════════
-# 🎬 ALIGHT MOTION PRO - iSteal-it
-# ═══════════════════════════════════════════════════════════════
-alightmotion-response = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses$,requires-body=true,max-size=262144,timeout=10,script-path=https://raw.githubusercontent.com/iSteal-it/script/main/alight-motion.json
-
-# ═══════════════════════════════════════════════════════════════
 # 🎬 KINEMASTER PRO - iSteal-it
 # ═══════════════════════════════════════════════════════════════
 kinemaster-response = type=http-response,pattern=^https:\/\/api-account\.kinemasters\.com\/v2\/user\/subscribe,requires-body=true,max-size=131072,timeout=10,script-path=https://raw.githubusercontent.com/iSteal-it/script/main/Kinemaster.json
-
-# ═══════════════════════════════════════════════════════════════
-# 📐 PHOTOMATH PLUS - iSteal-it
-# ═══════════════════════════════════════════════════════════════
-photomath-response = type=http-response,pattern=^https:\/\/lapi\.photomath\.net\/v4\/me,requires-body=true,max-size=131072,timeout=10,script-path=https://raw.githubusercontent.com/iSteal-it/script/main/Photomath.json
 
 # ═══════════════════════════════════════════════════════════════
 # 🎨 LIGHTROOM PREMIUM - iSteal-it
@@ -147,7 +137,7 @@ unfold-response = type=http-response,pattern=^https:\/\/api\.unfold\.app\/v1\/io
 
 # ═══════════════════════════════════════════════════════════════
 # 🔐 REVENUECAT MULTI-APP - z3rokaze
-# HTTPBot + 1Blocker + Structured + Splice + Facetune (Backup)
+# Locket + VSCO + Mojo + HTTPBot + 1Blocker + Structured + Splice + Facetune
 # ═══════════════════════════════════════════════════════════════
 revenuecat-response = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$),requires-body=true,max-size=262144,timeout=15,script-path=https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/revenuecat_multi.js
 
@@ -169,8 +159,8 @@ revenuecat-header = type=http-request,pattern=^https:\/\/api\.revenuecat\.com\/.
 ^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
 ^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
 # Spotify Cache Remove
-^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap)$ header-del if-none-match
+^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap)$ header-del if-none-match
 
 [MITM]
-hostname = %APPEND% -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com, spclient.wg.spotify.com, *-spclient.spotify.com, api.revenuecat.com, api.picsart.c*, api.meiease.c*, api-mobile.soundcloud.com, mb3admin.com, us-central1-alight-creative.cloudfunctions.net, api-account.kinemasters.com, lapi.photomath.net, photos.adobe.io, lcs-mobile-cops.adobe.io, app.algoriddim.com, api.calm.com, api.busuu.com, api.prod.headspace.com, vsco.co, api.mojo-app.com, widgetsmith.com, api.funimate.com, api.reface.video, api.unfold.app
+hostname = %APPEND% -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com, spclient.wg.spotify.com, *-spclient.spotify.com, api.revenuecat.com, api.picsart.c*, api.meiease.c*, api-mobile.soundcloud.com, mb3admin.com, api-account.kinemasters.com, photos.adobe.io, lcs-mobile-cops.adobe.io, app.algoriddim.com, api.calm.com, api.busuu.com, api.prod.headspace.com, vsco.co, api.mojo-app.com, widgetsmith.com, api.funimate.com, api.reface.video, api.unfold.app
 enable = true

@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: 26 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + Alight Motion + KineMaster + Photomath + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.4.0 (2026-02-03)
+desc: 24 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.5.0 (2026-02-10)
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/z3rokaze/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -29,9 +29,7 @@ http:
     - "api.picsart.c*"
     - "api.meiease.c*"
     - "api-mobile.soundcloud.com"
-    - "us-central1-alight-creative.cloudfunctions.net"
     - "api-account.kinemasters.com"
-    - "lapi.photomath.net"
     - "photos.adobe.io"
     - "app.algoriddim.com"
     - "api.calm.com"
@@ -67,7 +65,7 @@ http:
       timeout: 20
       max-size: 3145728
       binary-mode: true
-      argument: '{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"debug":false}'
+      argument: '{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}'
     # Spotify - app2smile (ORIGINAL)
     - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize)$
       name: sp-header
@@ -112,23 +110,9 @@ http:
       require-body: true
       timeout: 15
       max-size: 262144
-    # Alight Motion - iSteal-it
-    - match: ^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses$
-      name: am-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 262144
     # KineMaster - iSteal-it
     - match: ^https:\/\/api-account\.kinemasters\.com\/v2\/user\/subscribe
       name: km-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Photomath - iSteal-it
-    - match: ^https:\/\/lapi\.photomath\.net\/v4\/me
-      name: pm-res
       type: response
       require-body: true
       timeout: 10
@@ -253,14 +237,8 @@ script-providers:
   sc-res:
     url: https://raw.githubusercontent.com/sbunkov/shadowrocket-configuration/main/scripts/soundcloud.js
     interval: 86400
-  am-res:
-    url: https://raw.githubusercontent.com/iSteal-it/script/main/alight-motion.json
-    interval: 86400
   km-res:
     url: https://raw.githubusercontent.com/iSteal-it/script/main/Kinemaster.json
-    interval: 86400
-  pm-res:
-    url: https://raw.githubusercontent.com/iSteal-it/script/main/Photomath.json
     interval: 86400
   lr-res:
     url: https://raw.githubusercontent.com/iSteal-it/script/main/Lightroom.json
