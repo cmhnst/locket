@@ -2,7 +2,7 @@
 // RevenueCat Multi-App Premium Unlocker
 // ⚡ Performance: Ultra-Fast & Universal
 // 🔐 Supports: Locket, VSCO, Mojo, HTTPBot, 1Blocker, Structured, Splice, Facetune
-// 📅 Version: 2.3 (2026-02-10)
+// 📅 Version: 2.4 (2026-03-04)
 // 👤 Author: z3rokaze
 // ========================================
 
@@ -10,14 +10,14 @@
   'use strict';
 
   // ========= Constants ========= //
-  const PURCHASE_DATE = "2026-02-10T00:00:00Z";
+  const PURCHASE_DATE = "2026-03-04T00:00:00Z";
   const EXPIRES_DATE = "2099-12-31T23:59:59Z";
 
   // ========= App Configurations (Verified Working) ========= //
   const APP_CONFIGS = {
     'Locket': {
-      entitlement: 'Gold',
-      productId: 'locket.premium.yearly'
+      entitlements: ['Gold', 'pro'],
+      products: ['locket.premium.yearly', 'locket.premium.monthly', 'locket.premium.lifetime']
     },
     'VSCO': {
       entitlements: ['membership'],
@@ -97,8 +97,12 @@
 
   if (ua.includes('Locket')) {
     const config = APP_CONFIGS['Locket'];
-    responseObj.subscriber.subscriptions[config.productId] = createSubscription();
-    responseObj.subscriber.entitlements[config.entitlement] = createEntitlement(config.productId);
+    config.products.forEach(productId => {
+      responseObj.subscriber.subscriptions[productId] = createSubscription();
+    });
+    config.entitlements.forEach(entKey => {
+      responseObj.subscriber.entitlements[entKey] = createEntitlement(config.products[0]);
+    });
     appDetected = true;
   }
   else if (ua.includes('VSCO')) {
@@ -151,8 +155,12 @@
   // Default fallback
   if (!appDetected) {
     const config = APP_CONFIGS['Locket'];
-    responseObj.subscriber.subscriptions[config.productId] = createSubscription();
-    responseObj.subscriber.entitlements[config.entitlement] = createEntitlement(config.productId);
+    config.products.forEach(productId => {
+      responseObj.subscriber.subscriptions[productId] = createSubscription();
+    });
+    config.entitlements.forEach(entKey => {
+      responseObj.subscriber.entitlements[entKey] = createEntitlement(config.products[0]);
+    });
   }
 
   $done({ body: JSON.stringify(responseObj) });

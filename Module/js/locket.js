@@ -2,7 +2,7 @@
 // Locket Gold Premium - Enhanced Version
 // ⚡ Performance: Fast & Smooth
 // 🔐 Lifetime Premium Unlock
-// 📅 Version: 1.7 (2026-02-10) - Enhanced
+// 📅 Version: 1.8 (2026-03-04) - Enhanced
 // 👤 Author: z3rokaze
 // ========================================
 
@@ -10,7 +10,7 @@
   "use strict";
 
   // ========= Constants (Updated) ========= //
-  const PURCHASE_DATE = "2026-02-10T00:00:00Z"; // ✅ Current date
+  const PURCHASE_DATE = "2026-03-04T00:00:00Z"; // ✅ Current date
   const EXPIRES_DATE = "2099-12-31T23:59:59Z"; // ✅ Lifetime
   const PRODUCT_ID = "locket.premium.yearly"; // ✅ Stable product ID
 

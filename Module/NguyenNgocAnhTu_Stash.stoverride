@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: 24 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.5.0 (2026-02-10)
+desc: 24 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.6.0 (2026-03-04)
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/z3rokaze/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -13,7 +13,7 @@ rules:
   - DOMAIN,spclient.wg.spotify.com,DIRECT
   - DOMAIN-KEYWORD,spotify-ads,REJECT
   - DOMAIN-KEYWORD,spotify.com/ad,REJECT
-  # YouTube Ads Block
+  # YouTube Ads Block (Synced: Maasea Enhance)
   - AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
   - AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
 
@@ -96,14 +96,14 @@ http:
       type: request
       require-body: false
       timeout: 5
-    # PicsArt - NobyDa (ORIGINAL)
+    # PicsArt - NobyDa
     - match: ^https:\/\/api\.(picsart|meiease)\.c(n|om)\/shop\/subscription\/(validate|apple\/purchases)
       name: pa-res
       type: response
       require-body: true
       timeout: 10
       max-size: 131072
-    # SoundCloud Go+ - sbunkov (Updated 2026-02-03)
+    # SoundCloud Go+ - sbunkov
     - match: ^https:\/\/api-mobile\.soundcloud\.com\/configuration\/ios
       name: sc-res
       type: response
