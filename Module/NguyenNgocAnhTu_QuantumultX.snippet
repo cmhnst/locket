@@ -1,5 +1,5 @@
 # ⚡ Anh Tú Premium - Quantumult X
-# 24 Apps: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.6.0 (2026-03-04)
+# 24 Apps: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.7.0 (2026-03-20)
 # https://github.com/z3rokaze/NguyenNgocAnhTu
 
 hostname=*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,api.revenuecat.com,api.picsart.c*,api.meiease.c*,api-mobile.soundcloud.com,api-account.kinemasters.com,photos.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,vsco.co,api.mojo-app.com,widgetsmith.com,mb3admin.com,api.prod.headspace.com,api.funimate.com,lcs-mobile-cops.adobe.io,api.reface.video,api.unfold.app
@@ -16,7 +16,7 @@ host-keyword, spotify-ads, reject
 ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads url reject-200
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) url reject-200
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext url reject-200
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) url 302 $1$2$3
+
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad url reject-dict
 
 # RevenueCat Header
@@ -24,12 +24,10 @@ host-keyword, spotify-ads, reject
 ^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) url request-header (\r\n)X-RevenueCat-ETag:.+(\r\n) request-header $1
 
 
-# YouTube - Maasea (ORIGINAL)
-^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch) url script-request-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
+# YouTube - Maasea (Synced: YouTube.Enhance.sgmodule)
 ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
 
-# Spotify - app2smile (ORIGINAL)
-^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize)$ url script-request-header https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js
+# Spotify - app2smile (Synced: spotify.module 2025.06.27)
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ url script-request-header https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
 

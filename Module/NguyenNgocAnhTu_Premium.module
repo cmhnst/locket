@@ -1,7 +1,7 @@
 #!name=⚡ Nguyễn Ngọc Anh Tú 🌸 - Premium Extended
 #!desc=✨ 24 Apps Premium: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune 🔥
-#!version=2.6.0
-#!date=2026-03-04
+#!version=2.7.0
+#!date=2026-03-20
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
 #!homepage=https://github.com/z3rokaze/NguyenNgocAnhTu
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png
@@ -30,8 +30,8 @@ DOMAIN-KEYWORD,spotify.com/ad,REJECT
 # ═══════════════════════════════════════════════════════════════
 # 🚫 YOUTUBE ADS BLOCK (Updated: Maasea Enhance 2025)
 # ═══════════════════════════════════════════════════════════════
-AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT-NO-DROP
-AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT-NO-DROP
+AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 DOMAIN-SUFFIX,googleadservices.com,REJECT
 DOMAIN-SUFFIX,googlesyndication.com,REJECT
@@ -41,22 +41,20 @@ DOMAIN,www.googleadservices.com,REJECT
 [Script]
 # ═══════════════════════════════════════════════════════════════
 # 📺 YOUTUBE PREMIUM - Maasea (Synced: YouTube.Enhance.sgmodule)
-# Updated: Added http-request + http-response, max-size=3145728
+# Updated: http-response only, max-size=-1 (unlimited)
 # Ref: https://github.com/Maasea/sgmodule/blob/master/YouTube.Enhance.sgmodule
 # ═══════════════════════════════════════════════════════════════
-youtube-request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch),requires-body=1,max-size=3145728,binary-body-mode=1,timeout=30,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
 
-youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=3145728,binary-body-mode=1,timeout=30,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument={"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}
+youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,timeout=30,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument={"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}
 
 # ═══════════════════════════════════════════════════════════════
 # 🎵 SPOTIFY PREMIUM - app2smile (Synced: spotify.module 2025.06.27)
 # Ref: https://github.com/app2smile/rules/blob/master/module/spotify.module
 # ═══════════════════════════════════════════════════════════════
-spotify-header = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$,requires-body=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js
 
 spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 
-spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 
 # ═══════════════════════════════════════════════════════════════
 # 🎧 SOUNDCLOUD GO+ - sbunkov
@@ -156,7 +154,7 @@ revenuecat-header = type=http-request,pattern=^https:\/\/api\.revenuecat\.com\/.
 ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads reject-200
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) reject-200
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext reject-200
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+
 
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200

@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: 24 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.6.0 (2026-03-04)
+desc: 24 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.7.0 (2026-03-20)
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/z3rokaze/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -48,30 +48,18 @@ http:
     - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject-200
     - ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - reject-200
     - ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject-200
-    - (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+
   script:
-    # YouTube - Maasea (ORIGINAL)
-    - match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch)
-      name: yt-req
-      type: request
-      require-body: true
-      timeout: 20
-      max-size: 3145728
-      binary-mode: true
+    # YouTube - Maasea (Synced: YouTube.Enhance.sgmodule)
     - match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch)
       name: yt-res
       type: response
       require-body: true
-      timeout: 20
-      max-size: 3145728
+      timeout: 30
+      max-size: -1
       binary-mode: true
       argument: '{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}'
-    # Spotify - app2smile (ORIGINAL)
-    - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize)$
-      name: sp-header
-      type: request
-      require-body: false
-      timeout: 10
+    # Spotify - app2smile (Synced: spotify.module 2025.06.27)
     - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/
       name: sp-json
       type: request
@@ -210,14 +198,8 @@ http:
       max-size: 131072
 
 script-providers:
-  yt-req:
-    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
-    interval: 86400
   yt-res:
     url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
-    interval: 86400
-  sp-header:
-    url: https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js
     interval: 86400
   sp-json:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js

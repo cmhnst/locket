@@ -1,5 +1,5 @@
 #!name=💰 Anh Tú Premium - LanceX
-#!desc=24 Apps: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.6.0 (2026-03-04)
+#!desc=24 Apps: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v2.7.0 (2026-03-20)
 #!author=Nguyễn Ngọc Anh Tú
 #!homepage=https://github.com/z3rokaze/NguyenNgocAnhTu
 #!icon=https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/81/cb/9081cbba-b7c4-63b5-1207-23ab9efbbe04/AppIcon-0-1x_U007emarketing-0-11-0-0-85-220-0.png/230x0w.webp
@@ -22,23 +22,19 @@ DOMAIN,spclient.wg.spotify.com,DIRECT
 DOMAIN-KEYWORD,spotify-ads,REJECT
 DOMAIN-KEYWORD,spotify.com/ad,REJECT
 # YouTube Ads Block (Synced: Maasea Enhance)
-AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT-NO-DROP
-AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT-NO-DROP
+AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 DOMAIN-SUFFIX,googleadservices.com,REJECT
 
 [Script]
-# YouTube - Maasea (ORIGINAL)
-youtube-request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch))(\?(.*))?$,requires-body=1,max-size=3145728,binary-body-mode=1,timeout=20,engine=jsc,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
+# YouTube - Maasea (Synced: YouTube.Enhance.sgmodule)
+youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,timeout=30,engine=jsc,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument={"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}
 
-youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$,requires-body=1,max-size=3145728,binary-body-mode=1,timeout=20,engine=jsc,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument={"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}
-
-# Spotify - app2smile (ORIGINAL)
-spotify-header = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize)$,requires-body=0,timeout=10,engine=jsc,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js
-
+# Spotify - app2smile (Synced: spotify.module 2025.06.27)
 spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,timeout=10,engine=jsc,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 
-spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,timeout=10,engine=jsc,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,timeout=10,engine=jsc,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 
 # RevenueCat Multi - z3rokaze (Locket+VSCO+Mojo+HTTPBot+1Blocker+Structured+Splice+Facetune)
 revenuecat-multi-response = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$),script-path=https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/revenuecat_multi.js,requires-body=true,max-size=262144,timeout=10,engine=jsc
@@ -98,7 +94,7 @@ unfold-response = type=http-response,pattern=^https:\/\/api\.unfold\.app\/v1\/io
 ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads reject-200
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) reject-200
 ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext reject-200
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+
 
 [Map Local]
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
