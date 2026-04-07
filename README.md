@@ -46,7 +46,7 @@
 <!-- Status Badges -->
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-iOS-0A84FF?style=for-the-badge&logo=apple&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Version-2.0-34C759?style=for-the-badge&logo=semantic-release&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Version-3.0-34C759?style=for-the-badge&logo=semantic-release&logoColor=white"/>
   <img src="https://img.shields.io/github/license/z3rokaze/NguyenNgocAnhTu?style=for-the-badge&logo=opensourceinitiative&logoColor=white&color=50C878"/>
   <img src="https://img.shields.io/badge/Status-Active-FFD700?style=for-the-badge&logo=statuspage&logoColor=white"/>
 </p>
@@ -55,6 +55,8 @@
   <img src="https://img.shields.io/github/stars/z3rokaze/NguyenNgocAnhTu?style=social"/>
   <img src="https://img.shields.io/github/forks/z3rokaze/NguyenNgocAnhTu?style=social"/>
   <img src="https://img.shields.io/github/watchers/z3rokaze/NguyenNgocAnhTu?style=social"/>
+  <br><br>
+  <img src="https://komarev.com/ghpvc/?username=z3rokaze-nguyenngocanhtu&label=Profile%20Views&color=0084FF&style=flat-square&icon=github" alt="Visitors"/>
 </p>
 
 <p align="center">
@@ -66,6 +68,15 @@
   </a>
   <a href="https://www.facebook.com/NguyenNgocAnhTu.VN">
     <img src="https://img.shields.io/badge/Facebook-Community-0084FF?style=for-the-badge&logo=facebook&logoColor=white"/>
+  </a>
+</p>
+
+<br>
+
+<!-- GitHub Repo Info Card -->
+<p align="center">
+  <a href="https://github.com/z3rokaze/NguyenNgocAnhTu">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=z3rokaze&repo=NguyenNgocAnhTu&theme=react&border_radius=10" alt="Repo Stats"/>
   </a>
 </p>
 
@@ -104,6 +115,8 @@
 - [🚀 Hiệu suất](#-hiệu-suất)
 - [📱 Ứng dụng hỗ trợ](#-ứng-dụng-hỗ-trợ)
 - [📥 Cài đặt nhanh](#-cài-đặt-nhanh)
+- [🔒 Locket Gold DNS](#-locket-gold-dns---giữ-gold-khi-tắt-proxy)
+- [📋 Changelog](#-changelog)
 - [⚙️ Cấu hình](#️-cấu-hình)
 - [❓ Câu hỏi thường gặp](#-câu-hỏi-thường-gặp)
 - [💬 Hỗ trợ](#-hỗ-trợ)
@@ -406,6 +419,75 @@ Performance Metrics
 <!-- Glowing Divider -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
 
+<img src="https://img.icons8.com/color/96/shield.png" width="60"/>
+<h2>🔒 Locket Gold DNS</h2>
+<p>Giữ Gold Premium ngay cả khi tắt Shadowrocket/Surge</p>
+
+> [!TIP]
+> **Tính năng mới v3.0** — Bằng cách kết hợp vòng lặp DNS Block và App Cache, Locket sẽ mãi mãi giữ trạng thái Premium trên thiết bị của bạn.
+
+<br>
+
+<table align="center" width="100%">
+<tr>
+  <td align="center" width="50%">
+    <img src="https://img.icons8.com/fluency/96/toggle-on.png" width="48"/><br>
+    <b>1. Shadowrocket BẬT</b><br>
+    <sub>Proxy đánh chặn RevenueCat API<br>Bơm dữ liệu Gold ➔ <b>App ghi nhớ (Cache)</b></sub>
+  </td>
+  <td align="center" width="50%">
+    <img src="https://img.icons8.com/fluency/96/toggle-off.png" width="48"/><br>
+    <b>2. Shadowrocket TẮT</b><br>
+    <sub>DNS chặn RevenueCat API<br>Mất kết nối ➔ <b>App dùng Cache (Giữ Gold)</b></sub>
+  </td>
+</tr>
+</table>
+
+### 📥 3 Bước Cài Đặt
+
+<table align="center" width="100%">
+<tr>
+  <td width="33%" align="center">
+    <img src="https://img.icons8.com/fluency/96/download.png" width="40"/><br>
+    <b>1. Tải Profile</b><br>
+    <sub>Tải <code>LocketGoldDNS.mobileconfig</code> về máy.</sub>
+  </td>
+  <td width="33%" align="center">
+    <img src="https://img.icons8.com/fluency/96/settings.png" width="40"/><br>
+    <b>2. Cài đặt</b><br>
+    <sub>Vào <b>Cài đặt ➔ Cài đặt chung ➔ VPN & Quản lý thiết bị</b>.</sub>
+  </td>
+  <td width="33%" align="center">
+    <img src="https://img.icons8.com/fluency/96/checked.png" width="40"/><br>
+    <b>3. Lưu Cache</b><br>
+    <sub>Bật Shadowrocket và mở Locket 1 lần để lưu Gold. Xong!</sub>
+  </td>
+</tr>
+</table>
+
+<br>
+
+### 🚫 Blocked Domains (25 Domains)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/RevenueCat_API-3_Domains-FF3B30?style=flat-square&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Firebase_Analytics-4_Domains-FF9500?style=flat-square&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google_Analytics-4_Domains-FFCC00?style=flat-square&logoColor=white"/>
+  <br>
+  <img src="https://img.shields.io/badge/Google_Ads-4_Domains-34C759?style=flat-square&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AppsFlyer-6_Domains-007AFF?style=flat-square&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Mixpanel/Amplitude-4_Domains-5856D6?style=flat-square&logoColor=white"/>
+</p>
+
+</div>
+
+<br>
+
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
 ## Cài đặt nhanh
 
 </div>
@@ -623,6 +705,59 @@ https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/NguyenNgo
 <!-- Glowing Divider -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
 
+## 📋 Changelog
+
+</div>
+
+<details open>
+<summary>
+  <h3>🔄 v3.0.0 (2026-04-08)</h3>
+</summary>
+
+<br>
+
+**🔐 Locket Gold - Cải tiến lớn**
+- ✅ Thêm `non_subscriptions` cho lifetime purchase (RevenueCat API v1 spec)
+- ✅ Triple entitlements: `Gold` + `pro` + `premium` (tương thích Locket v2.41+)
+- ✅ Thêm `management_url`, `first_seen`, `request_date` fields
+- ✅ Thêm `original_application_version` cho store validation
+- ✅ Thêm `product_plan_identifier` mới
+
+**🔒 DNS Profile - Tính năng mới**
+- ✅ `LocketGoldDNS.mobileconfig` v3.0 — Giữ Gold khi tắt Shadowrocket
+- ✅ Chặn 25 domains (RevenueCat API + Analytics + Telemetry)
+- ✅ AdGuard DNS-over-HTTPS làm DNS mặc định
+
+**⚡ deleteHeader.js v2.0**
+- ✅ Thêm `If-Modified-Since` removal cho aggressive cache bypass
+
+**📦 Module configs**
+- ✅ Đồng bộ version v3.0.0 cho tất cả 6 platform configs
+
+</details>
+
+<details>
+<summary>
+  <h3>📁 v2.7.0 (2026-03-20)</h3>
+</summary>
+
+<br>
+
+- 🎶 24 Apps Premium support
+- 📺 YouTube: Synced with Maasea upstream
+- 🎵 Spotify: Enhanced header-del rules
+- 🔐 RevenueCat Multi-App: 8 apps support
+- ⚡ Performance: Ultra-fast IIFE pattern
+
+</details>
+
+<br>
+
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
 ## Cấu hình
 
 </div>
@@ -750,15 +885,17 @@ App → Configuration → Modules
 </tr>
 </table>
 
-### ⚠️ Lưu ý quan trọng
+### Lời khuyên quan trọng
 
-> **Tại sao phải tin cậy Certificate?**
+> [!IMPORTANT]
+> **Tại sao BẮT BUỘC phải tin cậy Certificate?**
 > 
-> MITM (Man-in-the-Middle) hoạt động bằng cách giải mã HTTPS traffic. iOS yêu cầu bạn phải **tin cậy certificate** thủ công để cho phép việc này. Nếu không trust, iOS sẽ block tất cả HTTPS connections và module không thể hoạt động.
+> Rất nhiều bạn quên bước này! Việc mở khoá Premium và chặn quảng cáo bắt buộc phải phân tích được dữ liệu mạng. Bằng cách vào `Cài đặt > Cài đặt chung > Giới thiệu > Cài đặt tin cậy chứng chỉ` và bật xanh lên, bạn đang cấp quyền cho App hoạt động. Nếu quên bật, iOS sẽ CHẶN KẾT NỐI MẠNG và không có tính năng nào sử dụng được!
 
+> [!NOTE]
 > **Certificate có an toàn không?**
 > 
-> Hoàn toàn an toàn! Certificate chỉ hoạt động **local trên thiết bị của bạn**, không gửi dữ liệu ra bên ngoài. Nó giống như một "chìa khóa riêng" chỉ dùng để mở các kết nối HTTPS của bạn.
+> Hoàn toàn an toàn! Mọi cấu hình chặn quảng cáo đều xử lý **100% Offline** ngay trên thiết bị của bạn. App không hề gửi dữ liệu cá nhân hay lịch sử đi đâu cả. Bạn đang làm chủ hoàn toàn dữ liệu của mình.
 
 </details>
 
@@ -864,6 +1001,8 @@ App → Configuration → Modules
 - [🚀 Performance](#-performance-1)
 - [📱 Supported Apps](#-supported-apps-1)
 - [📥 Quick Installation](#-quick-installation-1)
+- [🔒 Locket Gold DNS](#-locket-gold-dns---keep-gold-when-proxy-is-off)
+- [📋 Changelog](#-changelog-1)
 - [⚙️ Configuration](#️-configuration-1)
 - [❓ FAQ](#-faq-1)
 - [💬 Support](#-support-1)
@@ -1240,6 +1379,105 @@ https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/NguyenNgo
 
 <br>
 
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
+## 🔒 Locket Gold DNS - Keep Gold when Proxy is Off
+
+</div>
+
+> [!TIP]
+> **New Feature v3.0** — DNS Profile helps keep Locket Gold even when Shadowrocket/Surge is disabled.
+
+### How it works
+
+```
+Shadowrocket ON → Proxy intercepts RevenueCat → Injects Gold → App caches
+Shadowrocket OFF → DNS blocks api.revenuecat.com → App uses cache → Keeps Gold ✅
+```
+
+### Install DNS Profile
+
+1. Download `LocketGoldDNS.mobileconfig` from the repo
+2. **AirDrop** or open directly on iPhone
+3. Go to **Settings → General → VPN & Device Management**
+4. Install profile **"🔒 Locket Gold DNS v3.0"**
+5. Turn ON Shadowrocket → Open Locket once to cache Gold
+6. Turn OFF Shadowrocket → Gold remains ✅
+
+### Blocked Domains (25 domains)
+
+| Group | Count | Purpose |
+|------|:--------:|---------|
+| 🔐 RevenueCat API | 3 | Block subscription verification when proxy is off |
+| 🔥 Firebase Analytics | 4 | Block analytics tracking |
+| 📊 Google Analytics | 4 | Block reporting |
+| 🎯 Google Ads | 4 | Block fraud detection |
+| 📱 AppsFlyer | 6 | Block attribution |
+| 📈 Adjust/Mixpanel/Amplitude | 4 | Block event tracking |
+
+<br>
+
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
+## 📋 Changelog
+
+</div>
+
+<details open>
+<summary>
+  <h3>🔄 v3.0.0 (2026-04-08)</h3>
+</summary>
+
+<br>
+
+**🔐 Locket Gold - Major Improvements**
+- ✅ Added `non_subscriptions` for lifetime purchases (RevenueCat API v1 spec)
+- ✅ Triple entitlements: `Gold` + `pro` + `premium` (Locket v2.41+ compatible)
+- ✅ Added `management_url`, `first_seen`, `request_date` fields
+- ✅ Added `original_application_version` for store validation
+- ✅ Added new `product_plan_identifier`
+
+**🔒 DNS Profile - New Feature**
+- ✅ `LocketGoldDNS.mobileconfig` v3.0 — Keep Gold when Shadowrocket is off
+- ✅ Blocks 25 domains (RevenueCat API + Analytics + Telemetry)
+- ✅ Uses AdGuard DNS-over-HTTPS by default
+
+**⚡ deleteHeader.js v2.0**
+- ✅ Added `If-Modified-Since` removal for aggressive cache bypass
+
+**📦 Module configs**
+- ✅ Synced v3.0.0 version for all 6 platform configs
+
+</details>
+
+<details>
+<summary>
+  <h3>📁 v2.7.0 (2026-03-20)</h3>
+</summary>
+
+<br>
+
+- 🎶 24 Apps Premium support
+- 📺 YouTube: Synced with Maasea upstream
+- 🎵 Spotify: Enhanced header-del rules
+- 🔐 RevenueCat Multi-App: 8 apps support
+- ⚡ Performance: Ultra-fast IIFE pattern
+
+</details>
+
+<br>
+
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
 ## Configuration
 
 <details>
@@ -1295,6 +1533,20 @@ You can customize YouTube features by editing the `argument` parameter in the mo
 4. Test on WiFi first (cellular may have issues)
 
 </details>
+
+<br>
+
+> [!IMPORTANT]
+> **Why MUST I trust the Certificate?**
+> 
+> To block ads and unlock Premium, the proxy app intercepts network traffic. You MUST go to `Settings > General > About > Certificate Trust Settings` and enable the app's certificate. If you skip this step, iOS will BLOCK ALL NETWORK CONNECTIONS!
+
+> [!NOTE]
+> **Is the Certificate safe?**
+> 
+> Completely safe! All ad-blocking rules are processed **100% locally** on your device. The app DOES NOT send your personal data or browsing history anywhere. You are in full control of your data.
+
+<br>
 
 <details>
 <summary><b>Is this safe to use?</b></summary>
@@ -1393,6 +1645,8 @@ You can customize YouTube features by editing the `argument` parameter in the mo
 - [🚀 パフォーマンス](#-パフォーマンス)
 - [📱 対応アプリ](#-対応アプリ)
 - [📥 クイックインストール](#-クイックインストール)
+- [🔒 Locket Gold DNS](#-locket-gold-dns---プロキシ非接続時もgoldを維持)
+- [📋 変更履歴](#-変更履歴)
 - [⚙️ 設定](#️-設定)
 - [❓ よくある質問](#-よくある質問)
 - [💬 サポート](#-サポート)
@@ -1769,6 +2023,105 @@ https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/NguyenNgo
 
 <br>
 
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
+## 🔒 Locket Gold DNS - プロキシ非接続時もGoldを維持
+
+</div>
+
+> [!TIP]
+> **新機能 v3.0** — Shadowrocket/Surgeが無効の場合でもLocket Goldを維持するDNSプロファイル。
+
+### 仕組み
+
+```
+Shadowrocket オン → プロキシがRevenueCatを傍受 → Goldを注入 → アプリがキャッシュ
+Shadowrocket オフ → DNSがapi.revenuecat.comをブロック → アプリがキャッシュを使用 → Gold維持 ✅
+```
+
+### DNSプロファイルのインストール
+
+1. リポジトリから `LocketGoldDNS.mobileconfig` をダウンロード
+2. iPhoneに直接開くか **AirDrop**で送信
+3. **設定 → 一般 → VPNとデバイス管理** を開く
+4. **"🔒 Locket Gold DNS v3.0"** プロファイルをインストール
+5. Shadowrocketをオンにする → Locketを1回開いてGoldをキャッシュ
+6. Shadowrocketをオフにする → Gold維持 ✅
+
+### ブロック対象ドメイン（25ドメイン）
+
+| グループ | 数 | 目的 |
+|------|:--------:|---------|
+| 🔐 RevenueCat API | 3 | プロキシオフ時にサブスクリプション検証をブロック |
+| 🔥 Firebase Analytics | 4 | 分析トラッキングをブロック |
+| 📊 Google Analytics | 4 | レポート機能をブロック |
+| 🎯 Google Ads | 4 | 不正検出をブロック |
+| 📱 AppsFlyer | 6 | アトリビューションをブロック |
+| 📈 Adjust/Mixpanel/Amplitude | 4 | イベントトラッキングをブロック |
+
+<br>
+
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
+## 📋 変更履歴
+
+</div>
+
+<details open>
+<summary>
+  <h3>🔄 v3.0.0 (2026-04-08)</h3>
+</summary>
+
+<br>
+
+**🔐 Locket Gold - 主な改善点**
+- ✅ 生涯購入用の `non_subscriptions` を追加 (RevenueCat API v1仕様)
+- ✅ トリプルエンタイトルメント：`Gold` + `pro` + `premium` (Locket v2.41+ と互換)
+- ✅ `management_url`, `first_seen`, `request_date` フィールドを追加
+- ✅ ストア検証用の `original_application_version` を追加
+- ✅ 新しい `product_plan_identifier` を追加
+
+**🔒 DNS プロファイル - 新機能**
+- ✅ `LocketGoldDNS.mobileconfig` v3.0 — ShadowrocketがオフのときにGoldを維持
+- ✅ 25のドメインをブロック (RevenueCat API + アナリティクス + テレメトリ)
+- ✅ デフォルトでAdGuard DNS-over-HTTPSを使用
+
+**⚡ deleteHeader.js v2.0**
+- ✅ キャッシュを強制的にバイパスするための `If-Modified-Since` の削除を追加
+
+**📦 モジュール設定**
+- ✅ 全ての6プラットフォーム設定でv3.0.0バージョンを同期
+
+</details>
+
+<details>
+<summary>
+  <h3>📁 v2.7.0 (2026-03-20)</h3>
+</summary>
+
+<br>
+
+- 🎶 24アプリのプレミアムサポート
+- 📺 YouTube: Maaseaアップストリームと同期
+- 🎵 Spotify: header-delルールの強化
+- 🔐 RevenueCatマルチアプリ: 8アプリのサポート
+- ⚡ パフォーマンス: 超高速IIFEパターン
+
+</details>
+
+<br>
+
+<div align="center">
+
+<!-- Glowing Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"/>
+
 ## 設定
 
 <details>
@@ -1824,6 +2177,20 @@ https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/NguyenNgo
 4. WiFiで最初にテスト（セルラーに問題がある可能性）
 
 </details>
+
+<br>
+
+> [!IMPORTANT]
+> **なぜ証明書を信頼する必要があるのですか？**
+> 
+> 広告をブロックし、プレミアムのロックを解除するには、プロキシアプリがネットワークトラフィックを傍受する必要があります。`設定 > 一般 > 情報 > 証明書信頼設定` に進み、アプリの証明書を有効にする必要があります。この手順をスキップすると、iOSはすべてのネットワーク接続をブロックします！
+
+> [!NOTE]
+> **証明書は安全ですか？**
+> 
+> 完全に安全です！すべての広告ブロックルールはデバイス上で **100% ローカル** に処理されます。アプリはあなたの個人データや閲覧履歴を外部に送信しません。あなたはデータを完全にコントロールしています。
+
+<br>
 
 <details>
 <summary><b>これは安全に使用できますか？</b></summary>
@@ -2015,15 +2382,33 @@ https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/NguyenNgo
 <!-- Version & Status Info -->
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Active-50C878?style=flat-square&labelColor=1C1C1E"/>
-  <img src="https://img.shields.io/badge/Version-2.0-4A90E2?style=flat-square&labelColor=1C1C1E"/>
+  <img src="https://img.shields.io/badge/Version-3.0-4A90E2?style=flat-square&labelColor=1C1C1E"/>
   <img src="https://img.shields.io/badge/Platforms-6-7F52FF?style=flat-square&labelColor=1C1C1E"/>
   <img src="https://img.shields.io/badge/Apps-4-F39C12?style=flat-square&labelColor=1C1C1E"/>
-  <img src="https://img.shields.io/badge/Updated-Oct_2025-FFD700?style=flat-square&labelColor=1C1C1E"/>
+  <img src="https://img.shields.io/badge/Updated-Apr_2026-FFD700?style=flat-square&labelColor=1C1C1E"/>
 </p>
 
 <p align="center">
   <sub>Open Source • MIT License • Community Driven</sub>
 </p>
+
+<br>
+
+<div align="center">
+
+<!-- Star History -->
+<h3>📈 Growth / Tăng trưởng (Star History)</h3>
+<p align="center">
+  <a href="https://star-history.com/#z3rokaze/NguyenNgocAnhTu&Date">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=z3rokaze/NguyenNgocAnhTu&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=z3rokaze/NguyenNgocAnhTu&type=Date" />
+      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=z3rokaze/NguyenNgocAnhTu&type=Date" width="80%"/>
+    </picture>
+  </a>
+</p>
+
+</div>
 
 <br>
 

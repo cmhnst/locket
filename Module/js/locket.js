@@ -1,92 +1,101 @@
 // ========================================
 // Locket Gold Premium - Enhanced Version
 // ⚡ Performance: Fast & Smooth
-// 🔐 Lifetime Premium Unlock
-// 📅 Version: 1.8 (2026-03-04) - Enhanced
+// 🔐 Lifetime Premium Unlock - Full API v1 Spec
+// 📅 Version: 2.0 (2026-04-08)
 // 👤 Author: z3rokaze
+// 🔄 Changelog:
+//   v2.0 - Full RevenueCat API v1 response structure
+//        - Added non_subscriptions for lifetime purchase
+//        - Added management_url, first_seen, request_date
+//        - Triple entitlements: Gold + pro + premium
+//        - All 3 product IDs: yearly + monthly + lifetime
+//        - original_application_version for store validation
 // ========================================
 
 (function () {
   "use strict";
 
-  // ========= Constants (Updated) ========= //
-  const PURCHASE_DATE = "2026-03-04T00:00:00Z"; // ✅ Current date
-  const EXPIRES_DATE = "2099-12-31T23:59:59Z"; // ✅ Lifetime
-  const PRODUCT_ID = "locket.premium.yearly"; // ✅ Stable product ID
+  // ========= Constants ========= //
+  const PURCHASE_DATE = "2024-01-01T00:00:00Z";
+  const EXPIRES_DATE = "2099-12-31T23:59:59Z";
+  const NOW = new Date().toISOString();
 
-  // ========= Mapping Configuration ========= //
-  const APP_MAPPING = {
-    "%E8%BD%A6%E7%A5%A8%E7%A5%A8": ["vip+watch_vip"],
-    Locket: ["Gold"],
-  };
+  // ========= Locket Product IDs ========= //
+  const PRODUCTS = [
+    "locket.premium.lifetime",
+    "locket.premium.yearly",
+    "locket.premium.monthly"
+  ];
 
-  // ========= Get User-Agent (Optimized) ========= //
-  const headers = $request.headers;
-  const ua = headers["User-Agent"] || headers["user-agent"] || "";
+  // ========= Locket Entitlements ========= //
+  const ENTITLEMENTS = ["Gold", "pro", "premium"];
 
-  // ========= Parse Response Body (Enhanced Error Handling) ========= //
+  // ========= Parse Response ========= //
   let responseObj;
   try {
     responseObj = JSON.parse($response.body);
-
-    // Ensure structure exists (Complete initialization)
-    if (!responseObj.subscriber) {
-      responseObj.subscriber = {};
-    }
-    if (!responseObj.subscriber.subscriptions) {
-      responseObj.subscriber.subscriptions = {};
-    }
-    if (!responseObj.subscriber.entitlements) {
-      responseObj.subscriber.entitlements = {};
-    }
-  } catch (error) {
-    // Complete error recovery with full structure
-    responseObj = {
-      subscriber: {
-        subscriptions: {},
-        entitlements: {},
-        original_app_user_id: "",
-        original_application_version: "",
-      },
-    };
+  } catch (e) {
+    responseObj = {};
   }
 
-  // ========= Premium Data (Pre-built for speed) ========= //
+  // ========= Ensure Full Structure (RevenueCat API v1) ========= //
+  if (!responseObj.subscriber) responseObj.subscriber = {};
+  const sub = responseObj.subscriber;
+
+  if (!sub.subscriptions) sub.subscriptions = {};
+  if (!sub.entitlements) sub.entitlements = {};
+  if (!sub.non_subscriptions) sub.non_subscriptions = {};
+  if (!sub.original_app_user_id) sub.original_app_user_id = "$RCAnonymousID:locket_gold";
+  if (!sub.original_application_version) sub.original_application_version = "1.0";
+  if (!sub.first_seen) sub.first_seen = PURCHASE_DATE;
+  if (!sub.management_url) sub.management_url = "https://apps.apple.com/account/subscriptions";
+  if (!sub.original_purchase_date) sub.original_purchase_date = PURCHASE_DATE;
+
+  // Request-level fields
+  responseObj.request_date = NOW;
+  responseObj.request_date_ms = Date.now();
+
+  // ========= Subscription Data ========= //
   const subscriptionData = {
     is_sandbox: false,
     ownership_type: "PURCHASED",
     billing_issues_detected_at: null,
     period_type: "normal",
-    expires_date: EXPIRES_DATE, // ✅ Now consistent & longer
+    expires_date: EXPIRES_DATE,
     grace_period_expires_date: null,
     unsubscribe_detected_at: null,
-    original_purchase_date: PURCHASE_DATE, // ✅ Updated date
-    purchase_date: PURCHASE_DATE, // ✅ Updated date
-    store: "app_store",
+    original_purchase_date: PURCHASE_DATE,
+    purchase_date: PURCHASE_DATE,
+    store: "app_store"
   };
 
-  const entitlementData = {
-    grace_period_expires_date: null,
-    purchase_date: PURCHASE_DATE, // ✅ Updated date
-    product_identifier: PRODUCT_ID, // ⚠️ Keep original format
-    expires_date: EXPIRES_DATE, // ✅ Now same as subscription
-  };
-
-  // ========= Apply Mapping (Optimized Logic) ========= //
-  let entitlementKey = "Gold"; // Default
-
-  // Fast mapping lookup
-  for (const key in APP_MAPPING) {
-    if (ua.indexOf(key) !== -1) {
-      entitlementKey = APP_MAPPING[key][0];
-      break;
-    }
+  // ========= Apply All Products ========= //
+  for (let i = 0; i < PRODUCTS.length; i++) {
+    sub.subscriptions[PRODUCTS[i]] = Object.assign({}, subscriptionData, {
+      product_plan_identifier: PRODUCTS[i]
+    });
   }
 
-  // Apply premium data (Simplified logic)
-  responseObj.subscriber.subscriptions[PRODUCT_ID] = subscriptionData;
-  responseObj.subscriber.entitlements[entitlementKey] = entitlementData;
+  // ========= Apply All Entitlements ========= //
+  const primaryProduct = PRODUCTS[0]; // lifetime
+  for (let i = 0; i < ENTITLEMENTS.length; i++) {
+    sub.entitlements[ENTITLEMENTS[i]] = {
+      grace_period_expires_date: null,
+      purchase_date: PURCHASE_DATE,
+      product_identifier: primaryProduct,
+      expires_date: EXPIRES_DATE
+    };
+  }
 
-  // ========= Return Response (Fast stringify) ========= //
+  // ========= Non-Subscription (Lifetime Purchase) ========= //
+  sub.non_subscriptions["locket.premium.lifetime"] = [{
+    id: "locket_lifetime_" + Date.now().toString(36),
+    is_sandbox: false,
+    purchase_date: PURCHASE_DATE,
+    store: "app_store"
+  }];
+
+  // ========= Return Response ========= //
   $done({ body: JSON.stringify(responseObj) });
 })();
