@@ -2396,6 +2396,14 @@ Shadowrocket オフ → DNSがapi.revenuecat.comをブロック → アプリが
 
 <div align="center">
 
+<!-- Contributors -->
+<h3>👥 Contributors / Người đóng góp</h3>
+<p align="center">
+  <a href="https://github.com/z3rokaze/NguyenNgocAnhTu/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=z3rokaze/NguyenNgocAnhTu" alt="Contributors" />
+  </a>
+</p>
+
 <!-- Star History -->
 <h3>📈 Growth / Tăng trưởng (Star History)</h3>
 <p align="center">
@@ -2408,11 +2416,18 @@ Shadowrocket オフ → DNSがapi.revenuecat.comをブロック → アプリが
   </a>
 </p>
 
+<br>
+
+<!-- Back to top -->
+<a href="#readme">
+  <img src="https://img.shields.io/badge/⬆_Quay_lại_đầu_trang-1C1C1E?style=for-the-badge&logoColor=white" alt="Back to Top" />
+</a>
+
 </div>
 
 <br>
 
 <!-- Footer Wave -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20,24,25&height=120&section=footer"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20,24,25&height=120&section=footer&animation=twinkling"/>
 
 </div>
