@@ -1,10 +1,12 @@
 // ========================================
 // RevenueCat Multi-App Premium Unlocker
 // ⚡ Performance: Ultra-Fast & Universal
-// 🔐 Supports: Locket, VSCO, Mojo, HTTPBot, 1Blocker, Structured, Splice, Facetune
-// 📅 Version: 3.0 (2026-04-08)
+// 🔐 Supports: Locket, 车票票, VSCO, Mojo, HTTPBot, 1Blocker, Structured, Splice, Facetune
+// 📅 Version: 4.0 (2026-04-11)
 // 👤 Author: z3rokaze
 // 🔄 Changelog:
+//   v4.0 - Added 车票票 (Chinese Locket) with vip/watch_vip entitlements
+//        - Synced Locket method with NMS (confirmed working)
 //   v3.0 - Added non_subscriptions, management_url, first_seen, request_date
 //        - Enhanced Locket Gold with lifetime + all entitlements
 //        - Improved response structure to match RevenueCat API v1 spec
@@ -20,12 +22,16 @@
   const EXPIRES_DATE = "2099-12-31T23:59:59Z";
   const NOW = new Date().toISOString();
 
-  // ========= App Configurations (Updated 2026-04-08) ========= //
+  // ========= App Configurations (Updated 2026-04-11) ========= //
   const APP_CONFIGS = {
+    '\u8F66\u7968\u7968': {
+      entitlements: ['vip'],
+      products: ['watch_vip']
+    },
     'Locket': {
-      entitlements: ['Gold', 'pro', 'premium'],
-      products: ['locket.premium.yearly', 'locket.premium.monthly', 'locket.premium.lifetime'],
-      lifetime: 'locket.premium.lifetime'
+      entitlements: ['Gold'],
+      products: ['locket_1600_1y'],
+      lifetime: null
     },
     'VSCO': {
       entitlements: ['membership', 'plus'],
