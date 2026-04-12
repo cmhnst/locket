@@ -1,7 +1,7 @@
 #!name=⚡ Nguyễn Ngọc Anh Tú 🌸 - Premium Extended
 #!desc=✨ 30 Apps Premium: Locket Gold + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune + AlightMotion + Wink + Truecaller + CamScanner + BeautyPlus + Sub-Store 🔥
-#!version=5.0.0
-#!date=2026-04-11
+#!version=5.2.0
+#!date=2026-04-13
 #!author=Nguyễn Ngọc Anh Tú (z3rokaze)
 #!homepage=https://github.com/z3rokaze/NguyenNgocAnhTu
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png
@@ -174,13 +174,12 @@ camscanner-response = type=http-response,pattern=https:\/\/(api|api-cs.*)\.intsi
 beautyplus-response = type=http-response,pattern=https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance),requires-body=true,max-size=-1,timeout=60,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/BeautyPlus.js
 
 # ═══════════════════════════════════════════════════════════════
-# 🔐 REVENUECAT MULTI-APP - z3rokaze (v4.0)
-# Locket + 车票票 + VSCO + Mojo + HTTPBot + 1Blocker + Structured + Splice + Facetune
-# Updated: Added 车票票 support, synced with NMS method
+# 🔐 REVENUECAT MULTI-APP - z3rokaze (v5.2)
+# Locket Gold + 车票票 VIP
 # ═══════════════════════════════════════════════════════════════
-revenuecat-response = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$),requires-body=true,max-size=262144,timeout=15,script-path=https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/revenuecat_multi.js
+revenuecat-response = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/revenuecat_multi.js, requires-body=true, max-size=-1, timeout=60
 
-revenuecat-header = type=http-request,pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts|subscribers),timeout=5,script-path=https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/deleteHeader.js
+revenuecat-header = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/deleteHeader.js, timeout=60
 
 
 [URL Rewrite]
@@ -197,11 +196,9 @@ revenuecat-header = type=http-request,pattern=^https:\/\/api\.revenuecat\.com\/.
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
 
 [Header Rewrite]
-# RevenueCat ETag Remove (all variants)
+# RevenueCat ETag Remove (synced with NMS)
 ^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
 ^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
-^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del If-None-Match
-^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-Request-UUID
 # Spotify Cache Remove (Synced: app2smile spotify.module 2025.06.27)
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap)$ header-del if-none-match
 

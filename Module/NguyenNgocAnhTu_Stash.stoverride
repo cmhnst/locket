@@ -1,5 +1,5 @@
 name: ⚡ Anh Tú Premium - Stash
-desc: 24 Apps - Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v3.0.0 (2026-04-08)
+desc: 30 Apps - Locket Gold + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune + AlightMotion + Wink + Truecaller + CamScanner + BeautyPlus + Sub-Store | v5.2.0 (2026-04-13)
 author: Nguyễn Ngọc Anh Tú
 homepage: https://github.com/z3rokaze/NguyenNgocAnhTu
 icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
@@ -43,6 +43,13 @@ http:
     - "lcs-mobile-cops.adobe.io"
     - "api.reface.video"
     - "api.unfold.app"
+    - "us-central1-alight-creative.cloudfunctions.net"
+    - "api-sub.meitu.com"
+    - "premium*.truecaller.com"
+    - "ap*.intsig.net"
+    - "api.mr.pixocial.com"
+    - "newbeee-api.beautyplus.com"
+    - "sub.store"
   url-rewrite:
     - ^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject-200
     - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject-200
@@ -50,7 +57,9 @@ http:
     - ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject-200
 
   script:
-    # YouTube - Maasea (Synced: YouTube.Enhance.sgmodule)
+    # ═══════════════════════════════════════
+    # 📺 YouTube Premium (NMS Method)
+    # ═══════════════════════════════════════
     - match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch)
       name: yt-res
       type: response
@@ -59,7 +68,10 @@ http:
       max-size: -1
       binary-mode: true
       argument: '{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}'
-    # Spotify - app2smile (Synced: spotify.module 2025.06.27)
+    # ═══════════════════════════════════════
+    # 🎵 Spotify Premium - app2smile
+    # Synced: spotify.module 2025.06.27
+    # ═══════════════════════════════════════
     - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/
       name: sp-json
       type: request
@@ -72,7 +84,164 @@ http:
       timeout: 10
       max-size: 0
       binary-mode: true
-    # RevenueCat Multi - z3rokaze (Locket+VSCO+Mojo+HTTPBot+1Blocker+Structured+Splice+Facetune)
+    # ═══════════════════════════════════════
+    # 🎧 SoundCloud Go+ (NMS)
+    # ═══════════════════════════════════════
+    - match: ^https:\/\/api-mobile\.soundcloud\.com\/configuration\/ios
+      name: sc-res
+      type: response
+      require-body: true
+      timeout: 15
+      max-size: 262144
+    # ═══════════════════════════════════════
+    # 🎨 PicsArt Gold (NMS)
+    # ═══════════════════════════════════════
+    - match: ^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases
+      name: pa-res
+      type: request
+      require-body: true
+      timeout: 60
+    # ═══════════════════════════════════════
+    # 🎬 Emby Premiere - chavyleung
+    # ═══════════════════════════════════════
+    - match: ^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice
+      name: emby-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # ═══════════════════════════════════════
+    # 🎬 KineMaster Pro (NMS)
+    # ═══════════════════════════════════════
+    - match: ^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe
+      name: km-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 🎨 Lightroom - iSteal-it
+    - match: ^https:\/\/photos\.adobe\.io\/v2\/accounts
+      name: lr-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 🎵 Djay - iSteal-it
+    - match: ^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt
+      name: dj-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 🧘 Calm - iSteal-it
+    - match: ^https:\/\/api\.calm\.com\/me$
+      name: calm-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 📚 Bussu - iSteal-it
+    - match: ^https:\/\/api\.busuu\.com\/users\/me
+      name: bussu-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 📸 VSCO X - iSteal-it
+    - match: ^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions
+      name: vsco-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # ✨ Mojo Pro - iSteal-it
+    - match: ^https:\/\/api\.mojo-app\.com\/v\d\/subscription
+      name: mojo-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 📱 Widgetsmith Premium - iSteal-it
+    - match: ^https:\/\/widgetsmith\.com\/api\/subscription
+      name: ws-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 🧘 Headspace Premium - iSteal-it
+    - match: ^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions
+      name: hs-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 🎬 Funimate Pro - iSteal-it
+    - match: ^https:\/\/api\.funimate\.com\/users\/me
+      name: fun-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 🎨 Photoshop Express - iSteal-it
+    - match: ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile
+      name: ps-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 🎭 Reface Premium - iSteal-it
+    - match: ^https:\/\/api\.reface\.video\/api\/reface\/v1\/iosSubscription
+      name: rf-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 📱 Unfold Premium - iSteal-it
+    - match: ^https:\/\/api\.unfold\.app\/v1\/ios\/receipts
+      name: uf-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # ═══════════════════════════════════════
+    # 🎬 AlightMotion Pro (NMS)
+    # ═══════════════════════════════════════
+    - match: ^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses
+      name: am-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 131072
+    # 💄 Wink VIP (NMS)
+    - match: ^https?:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json
+      name: wink-res
+      type: response
+      require-body: true
+      timeout: 10
+    # 📞 Truecaller Premium (NMS)
+    - match: ^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple)
+      name: tc-res
+      type: response
+      require-body: true
+      timeout: 10
+      max-size: 0
+    # 📄 CamScanner Premium (NMS)
+    - match: https:\/\/(api|api-cs.*)\.intsig\.net\/purchase\/cs\/query_prop
+      name: cs-res
+      type: response
+      require-body: true
+      timeout: 10
+    # 💄 BeautyPlus Premium (NMS)
+    - match: https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance)
+      name: bp-res
+      type: response
+      require-body: true
+      timeout: 60
+      max-size: -1
+    # ═══════════════════════════════════════
+    # 🔐 RevenueCat Multi-App - z3rokaze (v5.2)
+    # Locket Gold + 车票票 VIP
+    # ═══════════════════════════════════════
     - match: ^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$)
       name: rc-multi-res
       type: response
@@ -84,122 +253,10 @@ http:
       type: request
       require-body: false
       timeout: 5
-    # PicsArt - NobyDa
-    - match: ^https:\/\/api\.(picsart|meiease)\.c(n|om)\/shop\/subscription\/(validate|apple\/purchases)
-      name: pa-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # SoundCloud Go+ - sbunkov
-    - match: ^https:\/\/api-mobile\.soundcloud\.com\/configuration\/ios
-      name: sc-res
-      type: response
-      require-body: true
-      timeout: 15
-      max-size: 262144
-    # KineMaster - iSteal-it
-    - match: ^https:\/\/api-account\.kinemasters\.com\/v2\/user\/subscribe
-      name: km-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Lightroom - iSteal-it
-    - match: ^https:\/\/photos\.adobe\.io\/v2\/accounts
-      name: lr-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Djay - iSteal-it
-    - match: ^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt
-      name: dj-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Calm - iSteal-it
-    - match: ^https:\/\/api\.calm\.com\/me$
-      name: calm-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Bussu - iSteal-it
-    - match: ^https:\/\/api\.busuu\.com\/users\/me
-      name: bussu-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # VSCO X - iSteal-it
-    - match: ^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions
-      name: vsco-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Mojo Pro - iSteal-it
-    - match: ^https:\/\/api\.mojo-app\.com\/v\d\/subscription
-      name: mojo-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Widgetsmith Premium - iSteal-it
-    - match: ^https:\/\/widgetsmith\.com\/api\/subscription
-      name: ws-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Emby Premiere - chavyleung
-    - match: ^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice
-      name: emby-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Headspace Premium - iSteal-it
-    - match: ^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions
-      name: hs-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Funimate Pro - iSteal-it
-    - match: ^https:\/\/api\.funimate\.com\/users\/me
-      name: fun-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Photoshop Express - iSteal-it
-    - match: ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile
-      name: ps-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Reface Premium - iSteal-it
-    - match: ^https:\/\/api\.reface\.video\/api\/reface\/v1\/iosSubscription
-      name: rf-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
-    # Unfold Premium - iSteal-it
-    - match: ^https:\/\/api\.unfold\.app\/v1\/ios\/receipts
-      name: uf-res
-      type: response
-      require-body: true
-      timeout: 10
-      max-size: 131072
 
 script-providers:
   yt-res:
-    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/youtube.response.js
     interval: 86400
   sp-json:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
@@ -207,20 +264,23 @@ script-providers:
   sp-proto:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
     interval: 86400
+  sc-res:
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/SoundCloudGoPlus.js
+    interval: 86400
+  pa-res:
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/PicsArt.js
+    interval: 86400
   rc-multi-res:
     url: https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/revenuecat_multi.js
     interval: 86400
   rc-multi-hdr:
     url: https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/deleteHeader.js
     interval: 86400
-  pa-res:
-    url: https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/PicsArt.js
-    interval: 86400
-  sc-res:
-    url: https://raw.githubusercontent.com/sbunkov/shadowrocket-configuration/main/scripts/soundcloud.js
+  emby-res:
+    url: https://raw.githubusercontent.com/chavyleung/scripts/master/emby/emby.js
     interval: 86400
   km-res:
-    url: https://raw.githubusercontent.com/iSteal-it/script/main/Kinemaster.json
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/Kinemaster.js
     interval: 86400
   lr-res:
     url: https://raw.githubusercontent.com/iSteal-it/script/main/Lightroom.json
@@ -243,9 +303,6 @@ script-providers:
   ws-res:
     url: https://raw.githubusercontent.com/iSteal-it/script/main/widgetsmith.json
     interval: 86400
-  emby-res:
-    url: https://raw.githubusercontent.com/chavyleung/scripts/master/emby/emby.js
-    interval: 86400
   hs-res:
     url: https://raw.githubusercontent.com/iSteal-it/script/main/headspace.json
     interval: 86400
@@ -260,4 +317,19 @@ script-providers:
     interval: 86400
   uf-res:
     url: https://raw.githubusercontent.com/iSteal-it/script/main/unfoldtest.json
+    interval: 86400
+  am-res:
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/AlightMotion.js
+    interval: 86400
+  wink-res:
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/WinkVipCrack.js
+    interval: 86400
+  tc-res:
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/TrueCaller.js
+    interval: 86400
+  cs-res:
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/camScanner.js
+    interval: 86400
+  bp-res:
+    url: https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/BeautyPlus.js
     interval: 86400

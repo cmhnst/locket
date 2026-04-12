@@ -1,8 +1,8 @@
 # ⚡ Anh Tú Premium - Quantumult X
-# 24 Apps: Locket + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune | v3.0.0 (2026-04-08)
+# 30 Apps: Locket Gold + YouTube + Spotify + SoundCloud + PicsArt + Emby + KineMaster + Lightroom + Photoshop + Djay + Calm + Bussu + VSCO + Mojo + Widgetsmith + Headspace + Funimate + Reface + Unfold + HTTPBot + 1Blocker + Structured + Splice + Facetune + AlightMotion + Wink + Truecaller + CamScanner + BeautyPlus + Sub-Store | v5.2.0 (2026-04-13)
 # https://github.com/z3rokaze/NguyenNgocAnhTu
 
-hostname=*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,api.revenuecat.com,api.picsart.c*,api.meiease.c*,api-mobile.soundcloud.com,api-account.kinemasters.com,photos.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,vsco.co,api.mojo-app.com,widgetsmith.com,mb3admin.com,api.prod.headspace.com,api.funimate.com,lcs-mobile-cops.adobe.io,api.reface.video,api.unfold.app
+hostname=*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*-spclient.spotify.com,api.revenuecat.com,api.picsart.c*,api.meiease.c*,api-mobile.soundcloud.com,api-account.kinemasters.com,photos.adobe.io,app.algoriddim.com,api.calm.com,api.busuu.com,vsco.co,api.mojo-app.com,widgetsmith.com,mb3admin.com,api.prod.headspace.com,api.funimate.com,lcs-mobile-cops.adobe.io,api.reface.video,api.unfold.app,us-central1-alight-creative.cloudfunctions.net,api-sub.meitu.com,premium*.truecaller.com,ap*.intsig.net,api.mr.pixocial.com,newbeee-api.beautyplus.com,sub.store
 
 # Spotify Ads Block
 host-suffix, audio-ak-spotify-com.akamaized.net, reject
@@ -23,62 +23,100 @@ host-keyword, spotify-ads, reject
 ^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) url request-header (\r\n)x-revenuecat-etag:.+(\r\n) request-header $1
 ^https?://api\.revenuecat\.com/.+/(receipts$|subscribers/?(.*?)*$) url request-header (\r\n)X-RevenueCat-ETag:.+(\r\n) request-header $1
 
+# ═══════════════════════════════════════
+# 📦 Sub-Store (NMS)
+# ═══════════════════════════════════════
+^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) url script-request-body https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js
+^https?:\/\/sub\.store url script-request-body https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js
 
-# YouTube - Maasea (Synced: YouTube.Enhance.sgmodule)
-^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js
+# ═══════════════════════════════════════
+# 📺 YouTube Premium (NMS Method)
+# ═══════════════════════════════════════
+^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/youtube.response.js
 
-# Spotify - app2smile (Synced: spotify.module 2025.06.27)
+# ═══════════════════════════════════════
+# 🎵 Spotify Premium - app2smile
+# Synced: spotify.module 2025.06.27
+# ═══════════════════════════════════════
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ url script-request-header https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
 
-# RevenueCat Multi - z3rokaze (Locket+VSCO+Mojo+HTTPBot+1Blocker+Structured+Splice+Facetune)
-^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$) url script-response-body https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/revenuecat_multi.js
-^https:\/\/api\.revenuecat\.com\/.*\/(receipts|subscribers) url script-request-header https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/deleteHeader.js
+# ═══════════════════════════════════════
+# 🎧 SoundCloud Go+ (NMS)
+# ═══════════════════════════════════════
+^https:\/\/api-mobile\.soundcloud\.com\/configuration\/ios url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/SoundCloudGoPlus.js
 
-# PicsArt - NobyDa
-^https:\/\/api\.(picsart|meiease)\.c(n|om)\/shop\/subscription\/(validate|apple\/purchases) url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/PicsArt.js
+# ═══════════════════════════════════════
+# 🎨 PicsArt Gold (NMS)
+# ═══════════════════════════════════════
+^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases url script-request-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/PicsArt.js
 
-# SoundCloud Go+ - sbunkov
-^https:\/\/api-mobile\.soundcloud\.com\/configuration\/ios url script-response-body https://raw.githubusercontent.com/sbunkov/shadowrocket-configuration/main/scripts/soundcloud.js
-
-# KineMaster - iSteal-it
-^https:\/\/api-account\.kinemasters\.com\/v2\/user\/subscribe url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Kinemaster.json
-
-# Lightroom - iSteal-it
-^https:\/\/photos\.adobe\.io\/v2\/accounts url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Lightroom.json
-
-# Djay - iSteal-it
-^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/djay.json
-
-# Calm - iSteal-it
-^https:\/\/api\.calm\.com\/me$ url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/calm.json
-
-# Bussu - iSteal-it
-^https:\/\/api\.busuu\.com\/users\/me url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/bussu.json
-
-# VSCO X - iSteal-it
-^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/vsco.json
-
-# Mojo Pro - iSteal-it
-^https:\/\/api\.mojo-app\.com\/v\d\/subscription url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/mojo.json
-
-# Widgetsmith Premium - iSteal-it
-^https:\/\/widgetsmith\.com\/api\/subscription url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/widgetsmith.json
-
-# Emby Premiere - chavyleung
+# ═══════════════════════════════════════
+# 🎬 Emby Premiere - chavyleung
+# ═══════════════════════════════════════
 ^https?:\/\/mb3admin\.com\/admin\/service\/registration\/validateDevice url script-response-body https://raw.githubusercontent.com/chavyleung/scripts/master/emby/emby.js
 
-# Headspace Premium - iSteal-it
-^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/headspace.json
+# ═══════════════════════════════════════
+# 🎬 KineMaster Pro (NMS)
+# ═══════════════════════════════════════
+^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/Kinemaster.js
 
-# Funimate Pro - iSteal-it
-^https:\/\/api\.funimate\.com\/users\/me url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Funimate.json
+# 🎨 Lightroom - iSteal-it
+^https:\/\/photos\.adobe\.io\/v2\/accounts url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Lightroom.json
 
-# Photoshop Express - iSteal-it
+# 🎨 Photoshop Express - iSteal-it
 ^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Photoshop.json
 
-# Reface Premium - iSteal-it
+# 🎵 Djay Pro - iSteal-it
+^https:\/\/app\.algoriddim\.com\/api\/v1\/validate-receipt url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/djay.json
+
+# 🧘 Calm - iSteal-it
+^https:\/\/api\.calm\.com\/me$ url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/calm.json
+
+# 📚 Bussu - iSteal-it
+^https:\/\/api\.busuu\.com\/users\/me url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/bussu.json
+
+# 📸 VSCO X - iSteal-it
+^https:\/\/vsco\.co\/api\/subscriptions\/2\.1\/user-subscriptions url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/vsco.json
+
+# ✨ Mojo Pro - iSteal-it
+^https:\/\/api\.mojo-app\.com\/v\d\/subscription url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/mojo.json
+
+# 📱 Widgetsmith Premium - iSteal-it
+^https:\/\/widgetsmith\.com\/api\/subscription url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/widgetsmith.json
+
+# 🧘 Headspace Premium - iSteal-it
+^https:\/\/api\.prod\.headspace\.com\/.*\/user-subscriptions url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/headspace.json
+
+# 🎬 Funimate Pro - iSteal-it
+^https:\/\/api\.funimate\.com\/users\/me url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/Funimate.json
+
+# 🎭 Reface Premium - iSteal-it
 ^https:\/\/api\.reface\.video\/api\/reface\/v1\/iosSubscription url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/reface.json
 
-# Unfold Premium - iSteal-it
+# 📱 Unfold Premium - iSteal-it
 ^https:\/\/api\.unfold\.app\/v1\/ios\/receipts url script-response-body https://raw.githubusercontent.com/iSteal-it/script/main/unfoldtest.json
+
+# ═══════════════════════════════════════
+# 🎬 AlightMotion Pro (NMS)
+# ═══════════════════════════════════════
+^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/AlightMotion.js
+
+# 💄 Wink VIP (NMS)
+^https?:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/WinkVipCrack.js
+
+# 📞 Truecaller Premium (NMS)
+^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple) url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/TrueCaller.js
+
+# 📄 CamScanner Premium (NMS)
+https:\/\/(api|api-cs.*)\.intsig\.net\/purchase\/cs\/query_prop url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/camScanner.js
+
+# 💄 BeautyPlus Premium (NMS)
+https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance) url script-response-body https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/BeautyPlus.js
+
+# ═══════════════════════════════════════
+# 🔐 RevenueCat Multi-App - z3rokaze (v5.2)
+# Locket Gold + 车票票 VIP
+# ═══════════════════════════════════════
+^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$) url script-response-body https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/revenuecat_multi.js
+^https:\/\/api\.revenuecat\.com\/.*\/(receipts|subscribers) url script-request-header https://raw.githubusercontent.com/z3rokaze/NguyenNgocAnhTu/main/Module/js/deleteHeader.js
